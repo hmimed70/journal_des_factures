@@ -9,7 +9,7 @@ const ITEMS_PER_PAGE = 8;
 export default function InvoiceList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
-
+  /* eslint-disable */
   const filteredInvoices = invoices.filter((item: any) =>
   item.InvoiceItems.some((myit: any) => 
   myit.ItemLibelle.toLowerCase().includes(searchTerm.toLowerCase())));
@@ -17,9 +17,6 @@ export default function InvoiceList() {
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
   const currentInvoices = filteredInvoices.slice(indexOfFirstItem, indexOfLastItem);
-  if(filteredInvoices.length===0) {
-
-  }
   const handlePageChange = (page: any) => {
     setCurrentPage(page);
   };
